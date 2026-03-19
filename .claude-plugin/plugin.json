@@ -1,0 +1,13 @@
+{
+  "name": "yashandb",
+  "description": "YashanDB 数据库技能包：Schema 设计、索引优化、查询调优、Go/Python/Java 驱动开发环境搭建、Docker 部署",
+  "version": "1.0.0",
+  "author": {
+    "name": "YashanDB Team",
+    "email": "support@yashandb.com"
+  },
+  "homepage": "https://github.com/yashan-technologies/yashandb-dev-plugins",
+  "repository": "https://github.com/yashan-technologies/yashandb-dev-plugins",
+  "license": "Apache-2.0",
+  "keywords": ["yashandb", "database", "sql", "oracle-compatible", "go", "python", "java"]
+}

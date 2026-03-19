@@ -1,0 +1,20 @@
+{
+  "name": "yashandb-marketplace",
+  "description": "YashanDB 官方技能插件市场",
+  "owner": {
+    "name": "YashanDB Team",
+    "email": "support@yashandb.com"
+  },
+  "plugins": [
+    {
+      "name": "yashandb",
+      "description": "YashanDB 数据库技能包：Schema 设计、索引优化、查询调优、Go/Python/Java 驱动开发环境搭建、Docker 部署",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "YashanDB Team",
+        "email": "support@yashandb.com"
+      }
+    }
+  ]
+}
