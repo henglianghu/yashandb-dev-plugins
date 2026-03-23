@@ -1,3 +1,9 @@
+---
+variables:
+  image: docker.1ms.run/yasdb/yashandb:23.4.7.100
+  password: Cod-2022
+---
+
 # Docker 故障排查
 
 ## 验证部署
@@ -106,7 +112,7 @@ docker rm yashandb
 ### 删除 Docker 镜像
 
 ```bash
-docker rmi yasdb/yashandb:latest
+docker rmi {{image}}
 ```
 
 ### 删除数据目录
@@ -123,7 +129,7 @@ Remove-Item -Recurse -Force "$env:USERPROFILE\yashan"
 
 ## 安全注意事项
 
-- 默认密码 `Cod-2022` 仅用于初始部署
+- 默认密码 `{{password}}` 仅用于初始部署
 - 首次部署后立即修改密码
 - 生产环境不要公开暴露端口 1688
 - 使用 Docker secrets 或环境文件管理敏感数据

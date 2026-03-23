@@ -1,3 +1,9 @@
+---
+variables:
+  image: docker.1ms.run/yasdb/yashandb:23.4.7.100
+  docker_hub_image: yasdb/yashandb:latest
+---
+
 # Docker 安装详细指南
 
 ## 前置条件
@@ -39,21 +45,29 @@ docker --version
 docker ps
 ```
 
-## 推荐方式：使用 Docker Hub 拉取镜像
+## 推荐方式：使用毫秒镜像拉取（国内加速）
 
 ### 自动拉取脚本（Linux）
 
 ```bash
-docker pull yasdb/yashandb:latest
+docker pull {{image}}
 ```
 
 ### 自动拉取脚本（PowerShell）
 
 ```powershell
-docker pull yasdb/yashandb:latest
+docker pull {{image}}
 ```
 
-## 备选方式：离线导入
+> **提示**：毫秒镜像是国内加速镜像，访问速度更快。如果该镜像不可用，可尝试 Docker Hub 方式。
+
+## 备选方式：使用 Docker Hub 拉取
+
+如果毫秒镜像不可用，可以使用 Docker Hub：
+
+```bash
+docker pull {{docker_hub_image}}
+```
 
 如果无法访问 Docker Hub，请参阅 [离线导入](offline-import.md)。
 
