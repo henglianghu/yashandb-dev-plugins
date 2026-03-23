@@ -1,12 +1,18 @@
+---
+variables:
+  image: docker.1ms.run/yasdb/yashandb:23.4.7.100
+  password: Cod-2022
+---
+
 # Docker 配置详细指南
 
 ## 默认配置
 
 | 参数 | 默认值 |
 |------|--------|
-| 镜像 | docker.1ms.run/yasdb/yashandb:23.4.7.100 |
+| 镜像 | {{image}} |
 | 端口 | 1688 |
-| 密码 | Cod-2022 |
+| 密码 | {{password}} |
 | 集群名称 | yashandb |
 | 数据目录 | ~/yashan/data |
 | 配置目录 | ~/yashan/yasboot |
@@ -36,9 +42,9 @@ docker run -d \
   -p 1688:1688 \
   -v ~/yashan/data:/data/yashan \
   -v ~/yashan/yasboot:/home/yashan/.yasboot \
-  -e SYS_PASSWD=Cod-2022 \
+  -e SYS_PASSWD={{password }} \
   --name yashandb \
-  docker.1ms.run/yasdb/yashandb:23.4.7.100
+  {{image}}
 ```
 
 **Windows PowerShell**
@@ -47,9 +53,9 @@ docker run -d `
   -p 1688:1688 `
   -v ${env:USERPROFILE}\yashan\data:C:\data\yashan `
   -v ${env:USERPROFILE}\yashan\yasboot:C:\home\yashan\.yasboot `
-  -e SYS_PASSWD=Cod-2022 `
+  -e SYS_PASSWD={{password }} `
   --name yashandb `
-  docker.1ms.run/yasdb/yashandb:23.4.7.100
+  {{image}}
 ```
 
 ### 自定义端口
@@ -61,7 +67,7 @@ docker run -d \
   -v ~/yashan/yasboot:/home/yashan/.yasboot \
   -e SYS_PASSWD=YourPassword \
   --name yashandb \
-  docker.1ms.run/yasdb/yashandb:23.4.7.100
+  {{image}}
 ```
 
 ### 自定义数据目录
@@ -71,16 +77,16 @@ docker run -d \
   -p 1688:1688 \
   -v /your/custom/path/data:/data/yashan \
   -v /your/custom/path/yasboot:/home/yashan/.yasboot \
-  -e SYS_PASSWD=Cod-2022 \
+  -e SYS_PASSWD={{password }} \
   --name yashandb \
-  docker.1ms.run/yasdb/yashandb:23.4.7.100
+  {{image}}
 ```
 
 ## 环境变量
 
 | 环境变量 | 说明 | 默认值 |
 |----------|------|--------|
-| SYS_PASSWD | 系统管理员密码 | Cod-2022 |
+| SYS_PASSWD | 系统管理员密码 | {{password}} |
 | YASDB_PORT | 端口 | 1688 |
 
 ## 查看容器状态
@@ -99,7 +105,7 @@ docker logs yashandb
 ## 连接测试
 
 ```bash
-docker exec -it yashandb yasql sys/Cod-2022
+docker exec -it yashandb yasql sys/{{password}}
 ```
 
 ## 停止和启动

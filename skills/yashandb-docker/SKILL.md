@@ -6,6 +6,11 @@ description: |
   并启动容器。
 
   适用场景：在 Linux 或 Windows 上快速部署 YashanDB。
+
+variables:
+  image: docker.1ms.run/yasdb/yashandb:23.4.7.100
+  docker_hub_image: yasdb/yashandb:latest
+  password: Cod-2022
 ---
 
 # YashanDB Docker 部署
@@ -26,7 +31,7 @@ description: |
 #### 方式一：从毫秒镜像拉取（推荐，国内加速）
 
 ```bash
-docker pull docker.1ms.run/yasdb/yashandb:23.4.7.100
+docker pull {{image}}
 ```
 
 > **提示**：毫秒镜像是国内加速镜像，访问速度更快。如果该镜像不可用，可尝试其他标签或使用方式二。
@@ -34,7 +39,7 @@ docker pull docker.1ms.run/yasdb/yashandb:23.4.7.100
 #### 方式二：从 Docker Hub 拉取
 
 ```bash
-docker pull yasdb/yashandb:latest
+docker pull {{docker_hub_image}}
 ```
 
 如果 Docker Hub 访问失败，请使用**方式三**从崖山官网下载。
@@ -78,16 +83,16 @@ docker run -d \
   -p 1688:1688 \
   -v ~/yashan/data:/data/yashan \
   -v ~/yashan/yasboot:/home/yashan/.yasboot \
-  -e SYS_PASSWD=Cod-2022 \
+  -e SYS_PASSWD={{password }} \
   --name yashandb \
-  docker.1ms.run/yasdb/yashandb:23.4.7.100
+  {{image}}
 ```
 
 ### 验证部署
 
 ```bash
 # 等待约 30 秒让数据库完全启动
-docker exec -it yashandb yasql sys/Cod-2022
+docker exec -it yashandb yasql sys/{{password}}
 ```
 
 ## 清理环境
@@ -95,7 +100,7 @@ docker exec -it yashandb yasql sys/Cod-2022
 ```bash
 docker stop yashandb
 docker rm yashandb
-docker rmi docker.1ms.run/yasdb/yashandb:23.4.7.100
+docker rmi {{image}}
 rm -rf ~/yashan
 ```
 
