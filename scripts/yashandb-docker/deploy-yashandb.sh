@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 PORT=${PORT:-1688}
 PASSWORD=${SYS_PASSWD:-Cod-2022}
 CLUSTER=${CLUSTER:-yashandb}
-IMAGE_NAME="yasdb/yashandb:latest"
+IMAGE_NAME="docker.1ms.run/yasdb/yashandb:23.4.7.100"
 HOME_DIR="${HOME}"
 
 echo -e "${GREEN}=== YashanDB Docker 部署脚本 ===${NC}"

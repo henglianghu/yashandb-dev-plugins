@@ -106,7 +106,7 @@ docker rm yashandb
 ### 删除 Docker 镜像
 
 ```bash
-docker rmi yasdb/yashandb:latest
+docker rmi docker.1ms.run/yasdb/yashandb:23.4.7.100
 ```
 
 ### 删除数据目录

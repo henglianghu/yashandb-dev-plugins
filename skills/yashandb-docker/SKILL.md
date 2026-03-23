@@ -23,15 +23,23 @@ description: |
 
 ### 拉取镜像
 
-#### 方式一：从 Docker Hub 拉取（推荐）
+#### 方式一：从毫秒镜像拉取（推荐，国内加速）
+
+```bash
+docker pull docker.1ms.run/yasdb/yashandb:23.4.7.100
+```
+
+> **提示**：毫秒镜像是国内加速镜像，访问速度更快。如果该镜像不可用，可尝试其他标签或使用方式二。
+
+#### 方式二：从 Docker Hub 拉取
 
 ```bash
 docker pull yasdb/yashandb:latest
 ```
 
-如果 Docker Hub 访问失败，请使用**方式二**从崖山官网下载。
+如果 Docker Hub 访问失败，请使用**方式三**从崖山官网下载。
 
-#### 方式二：从崖山官网下载（Docker Hub 访问失败时使用）
+#### 方式三：从崖山官网下载（Docker Hub 访问失败时使用）
 
 访问 [https://download.yashandb.com/download](https://download.yashandb.com/download) 下载 Docker 镜像包。
 
@@ -72,7 +80,7 @@ docker run -d \
   -v ~/yashan/yasboot:/home/yashan/.yasboot \
   -e SYS_PASSWD=Cod-2022 \
   --name yashandb \
-  yasdb/yashandb:latest
+  docker.1ms.run/yasdb/yashandb:23.4.7.100
 ```
 
 ### 验证部署
@@ -87,7 +95,7 @@ docker exec -it yashandb yasql sys/Cod-2022
 ```bash
 docker stop yashandb
 docker rm yashandb
-docker rmi yasdb/yashandb:latest
+docker rmi docker.1ms.run/yasdb/yashandb:23.4.7.100
 rm -rf ~/yashan
 ```
 

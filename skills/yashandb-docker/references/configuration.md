@@ -4,7 +4,7 @@
 
 | 参数 | 默认值 |
 |------|--------|
-| 镜像 | yasdb/yashandb:latest |
+| 镜像 | docker.1ms.run/yasdb/yashandb:23.4.7.100 |
 | 端口 | 1688 |
 | 密码 | Cod-2022 |
 | 集群名称 | yashandb |
@@ -38,7 +38,7 @@ docker run -d \
   -v ~/yashan/yasboot:/home/yashan/.yasboot \
   -e SYS_PASSWD=Cod-2022 \
   --name yashandb \
-  yasdb/yashandb:latest
+  docker.1ms.run/yasdb/yashandb:23.4.7.100
 ```
 
 **Windows PowerShell**
@@ -49,7 +49,7 @@ docker run -d `
   -v ${env:USERPROFILE}\yashan\yasboot:C:\home\yashan\.yasboot `
   -e SYS_PASSWD=Cod-2022 `
   --name yashandb `
-  yasdb/yashandb:latest
+  docker.1ms.run/yasdb/yashandb:23.4.7.100
 ```
 
 ### 自定义端口
@@ -61,7 +61,7 @@ docker run -d \
   -v ~/yashan/yasboot:/home/yashan/.yasboot \
   -e SYS_PASSWD=YourPassword \
   --name yashandb \
-  yasdb/yashandb:latest
+  docker.1ms.run/yasdb/yashandb:23.4.7.100
 ```
 
 ### 自定义数据目录
@@ -73,7 +73,7 @@ docker run -d \
   -v /your/custom/path/yasboot:/home/yashan/.yasboot \
   -e SYS_PASSWD=Cod-2022 \
   --name yashandb \
-  yasdb/yashandb:latest
+  docker.1ms.run/yasdb/yashandb:23.4.7.100
 ```
 
 ## 环境变量

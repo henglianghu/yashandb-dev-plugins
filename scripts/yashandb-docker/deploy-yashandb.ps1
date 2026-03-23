@@ -7,7 +7,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$IMAGE_NAME = "yasdb/yashandb:latest"
+$IMAGE_NAME = "docker.1ms.run/yasdb/yashandb:23.4.7.100"
 $HOME_DIR = $env:USERPROFILE
 
 Write-Host "=========================================" -ForegroundColor Cyan
